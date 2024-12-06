@@ -6,7 +6,7 @@ library(tidyverse)
 library(readxl)
 library(DBI)
 
-# Define UI
+
 ui <- dashboardPage(skin = "green",
   dashboardHeader(title = "Youth Mental Health Problems in Rwanda",
                   titleWidth = 350
@@ -77,8 +77,7 @@ ui <- dashboardPage(skin = "green",
                 fluidRow(
                   box(title = "Logistic Regression Model Summary", width = 12, solidHeader = TRUE,
                       verbatimTextOutput("model_summary")),
-                  box(title = "Predictions", width = 12, solidHeader = TRUE,
-                      tableOutput("predictions"))
+                 
                 )
         ),
         tabItem(tabName = "resources",

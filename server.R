@@ -54,7 +54,7 @@ server <- function(input, output) {
         dbGetQuery(con, "SELECT * FROM mental_health_data")
       })
       
-      # Optionally, you can show a message indicating the data has been submitted
+      #you can show a message indicating the data has been submitted
       showModal(modalDialog(
         title = "Data Submitted",
         "Your data has been successfully submitted and the dashboard has been updated.",
@@ -63,7 +63,7 @@ server <- function(input, output) {
       ))
     })
     
-    # Other existing server logic...
+    
     
     onStop(function() {
       dbDisconnect(con)
@@ -93,7 +93,7 @@ server <- function(input, output) {
     observeEvent(input$login, {
       # Check if the provided username and password are correct
       if (input$username == valid_username && input$password == valid_password) {
-        logged_in(TRUE)  # Set login status to TRUE
+        logged_in(TRUE)  
       } else {
         showModal(modalDialog(
           title = "Login Failed",
@@ -106,7 +106,7 @@ server <- function(input, output) {
     
     output$data_table <- renderTable({
       # Only fetch and display data if the user is logged in
-      req(logged_in())  # This will stop execution if logged_in() is FALSE
+      req(logged_in())  # This will stop execution if is FALSE
       
       # Fetch data from the database
       dbGetQuery(con, "SELECT * FROM mental_health_data")
